@@ -8,8 +8,8 @@ import calendar
 
 def load_urls4check(path):
     with open(path) as f:
-        data = f.readlines()
-    return data
+        urls = f.readlines()
+    return urls
 
 
 def is_server_response_with_200(url):
@@ -67,7 +67,7 @@ def print_site_info(url, is_status_code_200, is_expiration_date_more_then_month)
     if is_status_code_200 and is_expiration_date_more_then_month:
         print("{0} - PASSED.".format(url))
     elif not is_status_code_200 and is_expiration_date_more_then_month:
-        print('{} - status code FAILED.'.format(str(url)))
+        print('{0} - status code FAILED.'.format(str(url)))
     elif is_status_code_200 and not is_expiration_date_more_then_month:
         print("{0} - expiration date FAILED.".format(url))
     else:
